@@ -65,13 +65,13 @@ combo_DF$activity <- act_tab[,2][match(combo_DF$activity,act_tab[,1])]
 # Set up grouping of data
 grp_sub_act <- group_by(combo_DF, subjectidnumber, activity)
 # Create table of means
-tbl_of_means <- summarise_each(grp_subject_act, funs(mean))
+TidyData_MeansTable <- summarise_each(grp_subject_act, funs(mean))
 # write table to txt file
-write.table(tbl_of_means,paste0(getwd(),'/means_table.txt'),row.names = FALSE)
+write.table(TidyData_MeansTable,paste0(getwd(),'/TidyData_MeansTable.txt'),row.names = FALSE)
 
 
 # Read the table of means file back into workspace to view the data in r
-data_test <- read.table(paste0(getwd(),'/means_table.txt'), header = TRUE)
+data_test <- read.table(paste0(getwd(),'/TidyData_MeansTable.txt'), header = TRUE)
 View(data_test,'Table of Means Viewer')
 
 
